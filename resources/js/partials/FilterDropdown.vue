@@ -1,6 +1,22 @@
 <script type="text/ecmascript-6">
     export default {
         props: ['isFiltered'],
+        methods: {
+            /**
+             * Clear the filters.
+             */
+            clearFilters(){
+                this.$parent.searchQuery = '';
+                Object.keys(this.$parent.filters).forEach(filter => this.$parent.filters[filter] = '');
+
+                this.$emit('closeDropDown');
+            }
+        },
+        computed: {
+            showClearButton() {
+                return !!this.$parent.filters;
+            }
+        }
     }
 </script>
 
@@ -17,6 +33,8 @@
 
         <div slot="content" class="dropdown-content w-64 pin-r p-3">
             <slot/>
+
+            <a v-if="showClearButton" href="#" @click.prevent="clearFilters" class="py-1 px-2 btn-light btn-sm text-xs">Clear</a>
         </div>
     </dropdown>
 </template>

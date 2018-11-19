@@ -1,3 +1,4 @@
+
 <script type="text/ecmascript-6">
     import moment from 'moment';
     import loadsEntries from '../loadsEntries';
@@ -123,7 +124,7 @@
                         </select>
                     </div>
 
-                    <div class="flex items-center justify-between mt-3">
+                    <div class="flex items-center justify-between mt-3 mb-5">
                         <span>Tag</span>
                         <select name="status" class="w-1/2 focus:outline-none"
                                 v-model="filters.tag_id">
